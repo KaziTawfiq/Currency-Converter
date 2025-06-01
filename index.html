@@ -1,42 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Currency Converter</title>
-    <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Currency Converter</title>
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>Currency Converter</h1>
-        <div class="converter">
-            <div class="input-group">
-                <label for="amount">Amount</label>
-                <input type="number" id="amount" placeholder="Enter amount" />
-            </div>
-            <div class="input-group">
-                <label for="from-currency">From</label>
-                <select id="from-currency">
-                    <option value="USD">USD</option>
-                    <option value="EUR">EUR</option>
-                    <option value="GBP">GBP</option>
-                    <option value="AUD">AUD</option>
-                    <!-- Add more options as needed -->
-                </select>
-            </div>
-            <div class="input-group">
-                <label for="to-currency">To</label>
-                <select id="to-currency">
-                    <option value="EUR">EUR</option>
-                    <option value="USD">USD</option>
-                    <option value="GBP">GBP</option>
-                    <option value="AUD">AUD</option>
-                    <!-- Add more options as needed -->
-                </select>
-            </div>
-            <button id="convert-btn">Convert</button>
-            <div class="result" id="result"></div>
+<div class="container">
+    <h1>Currency Converter</h1>
+    <form id="converter-form">
+        <div class="input-group">
+            <label for="from-currency">From Currency Code</label>
+            <input type="text" id="from-currency" placeholder="e.g. USD" required />
         </div>
-    </div>
+        <div class="input-group">
+            <label for="to-currency">To Currency Code</label>
+            <input type="text" id="to-currency" placeholder="e.g. EUR" required />
+        </div>
+        <div class="input-group">
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" placeholder="Enter amount" required />
+        </div>
+        <button type="submit">Convert</button>
+    </form>
+    <div class="result" id="result"></div>
+</div>
+<script src="converter.js"></script>
 </body>
 </html>

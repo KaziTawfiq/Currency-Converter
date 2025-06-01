@@ -7,9 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const fromCurrency = document.querySelector('#from-currency').value.trim().toUpperCase();
         const toCurrency = document.querySelector('#to-currency').value.trim().toUpperCase();
+        const amount = parseFloat(document.querySelector('#amount').value.trim());
 
-        if (!fromCurrency || !toCurrency) {
-            resultDiv.textContent = 'Please enter both currency codes!';
+        if (!fromCurrency || !toCurrency || isNaN(amount)) {
+            resultDiv.textContent = 'Please enter valid currency codes and amount!';
             return;
         }
 
@@ -27,7 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     return;
                 }
 
-                resultDiv.innerHTML = `1 ${fromCurrency} = ${rate} ${toCurrency}`;
+                const convertedAmount = (rate * amount).toFixed(2);
+                resultDiv.innerHTML = `${amount} ${fromCurrency} = ${convertedAmount} ${toCurrency}`;
             })
             .catch(error => {
                 resultDiv.textContent = 'Error: ' + error.message;
